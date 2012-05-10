@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+	<h2> Timesheets </h2>
+	
+	<ul id="Timesheets">
+	{% for timesheet in timesheet %}
+		<li>
+			<h3>{{timesheet.project_name}}</h3>
+			<ul class="sheet_meta">
+				<li><a href="{{timesheet.email}}"></a>{{timesheet.username}}</li>
+				<li>{{timesheet.pub_date|datetimeformat}}</li>
+			</ul>
+		</li>
+	{% else %}
+		<h3>There are currently no running timesheets</h3>
+	{% endfor %}
+	</ul>
+{% endblock %}
